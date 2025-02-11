@@ -2,18 +2,15 @@ package ru.coffemaker.CoffeeMaker.Controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.coffemaker.CoffeeMaker.DAO.RecipeDAO;
+import ru.coffemaker.CoffeeMaker.DTO.RecipeDTO;
 import ru.coffemaker.CoffeeMaker.Entity.Ingredient;
 import ru.coffemaker.CoffeeMaker.Entity.Recipe;
-import ru.coffemaker.CoffeeMaker.Entity.Statistics;
 import ru.coffemaker.CoffeeMaker.Service.IngredientService.IngredientService;
 import ru.coffemaker.CoffeeMaker.Service.RecipeService.RecipeService;
 import ru.coffemaker.CoffeeMaker.Service.StatisticsService.StatisticsService;
@@ -69,7 +66,7 @@ public class MakeCoffeeController {
     }
 
     @PostMapping(value = "/recipe")
-    public ResponseEntity<?> addRecipe(@RequestBody RecipeDAO recipe) {
+    public ResponseEntity<?> addRecipe(@RequestBody RecipeDTO recipe) {
         if (recipe.getName() == null || recipe.getCoffee() < 1) {
             return new ResponseEntity<>("Necessary fields are no provided", HttpStatus.BAD_REQUEST);
         }

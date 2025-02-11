@@ -1,11 +1,11 @@
-package ru.coffemaker.CoffeeMaker.DAO;
+package ru.coffemaker.CoffeeMaker.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class RecipeDAO {
+public class RecipeDTO {
 
 
     private String name;

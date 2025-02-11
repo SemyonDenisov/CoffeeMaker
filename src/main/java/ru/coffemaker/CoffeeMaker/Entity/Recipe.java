@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.coffemaker.CoffeeMaker.DAO.RecipeDAO;
+import ru.coffemaker.CoffeeMaker.DTO.RecipeDTO;
 
 @Table(name = "recipe")
 @Entity
@@ -36,11 +36,11 @@ public class Recipe {
     private int milk;
 
 
-    public Recipe(RecipeDAO recipeDAO){
-        this.coffee = recipeDAO.getCoffee();
-        this.milk =recipeDAO.getMilk();
-        this.water = recipeDAO.getWater();
-        this.name = recipeDAO.getName();
+    public Recipe(RecipeDTO recipeDTO){
+        this.coffee = recipeDTO.getCoffee();
+        this.milk = recipeDTO.getMilk();
+        this.water = recipeDTO.getWater();
+        this.name = recipeDTO.getName();
     }
 
 }
